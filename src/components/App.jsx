@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import { Searchbar } from "./Searchbar/Searchbar";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { Button } from 'components/Button/Button';
@@ -9,7 +9,7 @@ import { Skeleton } from "./Skeleton/Skeleton";
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-export class App extends Component {
+export class App extends React.Component {
   state = {
     value: null,
     item: [],
@@ -28,7 +28,7 @@ export class App extends Component {
     );
   };
 
-  funcToglleEsc = (e) => {
+  funcToglleEsc = (e,) => {
        
     this.setState(({ showModal }) =>
       ({ showModal: !showModal, })
@@ -118,6 +118,7 @@ export class App extends Component {
           fontSize: 40,
           color: '#010101',
           padding: '10px 15px'
+          // scrollBehavior: "smooth",
         }}
         >
         {status === 'pending' && item.length === 0 ?<Skeleton/>:<ImageGallery status={status} item={item} val={value} modal={this.funcToglle} />}
